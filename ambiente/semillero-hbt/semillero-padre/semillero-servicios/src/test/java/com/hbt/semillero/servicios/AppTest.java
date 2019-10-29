@@ -41,7 +41,6 @@ public class AppTest {
 		cadenaInvertidaEsperada = "";//cambio de la cadena esperada invertida a un valor acertado
 		Assert.assertEquals(AppTest.invertirCadena(cadena), cadenaInvertidaEsperada); //Prueba con cadena esperada invertida acertada 
 		
-		cadena = "";//cambio de la cadena esperada invertida a un valor vacio
 		cadenaInvertidaEsperada = " ";//cambio de la cadena esperada invertida a un valor equivocado
 		Assert.assertNotEquals(AppTest.invertirCadena(cadena), cadenaInvertidaEsperada); //Prueba con cadena esperada invertida equivocada 
 	}

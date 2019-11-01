@@ -4,7 +4,7 @@
 package com.hbt.semillero.entidades;
 
 /**
- * <b>Descripción:<b> Clase que determina
+ * <b>Descripción:<b> Clase que determina los posibles valores de tematicas en comics
  * <b>Caso de Uso:<b> 
  * @author Cesar
  * @version 

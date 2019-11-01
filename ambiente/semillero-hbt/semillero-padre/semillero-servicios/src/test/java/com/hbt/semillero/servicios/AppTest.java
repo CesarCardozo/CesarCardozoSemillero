@@ -7,11 +7,8 @@ import com.hbt.semillero.entidades.EstadoEnum;
 
 public class AppTest {
 
-	public void shouldAnswerWithTrue() {
 
-	}
-
-	@Test
+	@Test(enabled=false)
 	public void primeraPU() {
 		Long resultadoEsperado = 150L;
 		Long sumando1 = 100L;
@@ -30,7 +27,7 @@ public class AppTest {
 		return cadenaInvertida;
 	}
 	
-	@Test
+	@Test(enabled=false)
 	private void invertirCadena() {
 		String cadena = "prueba";
 		String cadenaInvertidaEsperada = "abeurp";//inicializacion  de la cadena esperada invertida en un valor acertado
@@ -54,12 +51,14 @@ public class AppTest {
 	 * @author Cesar
 	 *
 	 */
-	@Test
+	@Test(enabled=false)
     public void pruebaEstadoEnum() {
         EstadoEnum estadoActivo = EstadoEnum.ACTIVO;//Instanciar un enum de la clase EstadoEnum (estado activo)
         EstadoEnum estadoInactivo = EstadoEnum.INACTIVO;//Otra instancia del estado inactivo (para fines de pruebas)
-        String estadoActivoNombre = estadoActivo.name(); //nombre del estado activo
-        String estadoInactivoNombre = estadoInactivo.name();//nombr del estado inactivo
+        @SuppressWarnings("unused")
+		String estadoActivoNombre = estadoActivo.name(); //nombre del estado activo
+        @SuppressWarnings("unused")
+		String estadoInactivoNombre = estadoInactivo.name();//nombr del estado inactivo
         int posEstadoActivo = estadoActivo.ordinal();//posicion del estado activo
         int posEstadoInactivo = estadoInactivo.ordinal();//posicion de estado inactivo
         int posicionEsperadaEstodoActivo = 0;//posicion esperada del estado activo
@@ -69,7 +68,8 @@ public class AppTest {
         //Prueba en la que se comprueba que sean iguales las posiciones actuales y esperada del estado inactivo
         Assert.assertEquals(posEstadoInactivo, posicionEsperadaEstodoInactivo);
         //Array que contiene todos los enum
-        EstadoEnum[] estados = EstadoEnum.values();
+        @SuppressWarnings("unused")
+		EstadoEnum[] estados = EstadoEnum.values();
     }
 	
 	//TODO

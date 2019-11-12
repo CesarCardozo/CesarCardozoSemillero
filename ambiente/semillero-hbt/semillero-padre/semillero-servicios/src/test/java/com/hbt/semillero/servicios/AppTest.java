@@ -72,8 +72,13 @@ public class AppTest {
 		EstadoEnum[] estados = EstadoEnum.values();
     }
 	
-	//TODO
-    /**
-     * Pediente hacer un método que use el método ToString de la entidad COMIC
-     */
+	@Test
+	public void probarStringIgual() {
+		String s1 = "street";
+		String s2;
+		s2 = new String("street");
+		if(s1==s2) {
+			
+		}
+	}
 }

@@ -1,8 +1,0 @@
-<div *ngFor="let comic of listaComics">
-    <pre>{{comic | json }}</pre>
-</div>
-<button (click)="deleteComic(2)">Borrar comic numero 3</button>
-<div *ngIf="mostrarMensaje">
-    <button (dblclick)="ocultarMensaje()">Al dar doble click se ocultara el mensaje</button>
-    Se ha eliminado el comic
-</div>

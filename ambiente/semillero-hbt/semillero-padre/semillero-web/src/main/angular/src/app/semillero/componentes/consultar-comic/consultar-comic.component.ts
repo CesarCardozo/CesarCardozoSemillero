@@ -11,9 +11,17 @@ export class ConsultarComicComponent implements OnInit {
 
   /**
      * Atributo que contiene los controles del formulario
+     * @author Cesar Nicolas Cardozo Rincon
      */
   public gestionarComicForm: FormGroup;
 
+  /**
+   * constructor de la clase consultar comic
+   * @param router 
+   * @param activatedRoute 
+   * @param fb 
+   * @param location 
+   */
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
@@ -30,6 +38,10 @@ export class ConsultarComicComponent implements OnInit {
       });
   }
 
+  /**
+   * Metodo que incializa el componente
+   * @author Cesar Nicolas Cardozo Rincon
+   */
   ngOnInit() {
     let comic = this.activatedRoute.snapshot.params;
     this.gestionarComicForm.controls.nombre.setValue(comic.nombre);
@@ -50,6 +62,10 @@ export class ConsultarComicComponent implements OnInit {
     this.gestionarComicForm.controls.color.disable();
   }
 
+  /**
+   * metodo que permite volver a la pantalla de gestion de comics
+   * @author Cesar Nicolas Cardozo Rincon
+   */
   volver(){
     this.location.back();
   }

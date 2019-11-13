@@ -6,7 +6,7 @@ import { ConsultarComicComponent } from './semillero/componentes/consultar-comic
 
 const routes: Routes = [
   { path: 'gestionar-comic', component: GestionarComicComponent },
-  { path: 'bienvenida', component: BienvenidaComponent, data : null },
+  { path: 'bienvenida', component: BienvenidaComponent},
   { path: 'consultar-comic', component: ConsultarComicComponent, data : null }
 ];
 

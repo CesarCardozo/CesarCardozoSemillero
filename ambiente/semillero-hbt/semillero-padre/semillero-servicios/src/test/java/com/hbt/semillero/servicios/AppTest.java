@@ -19,6 +19,7 @@ public class AppTest {
 		Assert.assertNotEquals(resultado, resultadoEsperado);
 	}
 
+	@Test(enabled=false)
 	private static String invertirCadena(String cadena) {
 		String cadenaInvertida = "";
 		for (int x = cadena.length() - 1; x >= 0; x--) {

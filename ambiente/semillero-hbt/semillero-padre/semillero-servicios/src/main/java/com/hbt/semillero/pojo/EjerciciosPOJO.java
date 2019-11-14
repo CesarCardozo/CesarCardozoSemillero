@@ -203,4 +203,19 @@ public class EjerciciosPOJO {
 		throw new Exception();//respuesta correcta d
 	}
 	
+	/**
+	 * 
+	 * Metodo encargado de generar la secuenci
+	 * <b>Caso de Uso</b>
+	 * @author Cesar
+	 * 
+	 * @param digitoA
+	 * @param digitoB
+	 * @return
+	 */
+	public static Integer getNextNumber(Integer digitoA, Integer digitoB) {
+		int resultado = digitoA+ digitoB+1;
+		return Integer.parseInt(1+""+(resultado-1));
+	}
+	
 }

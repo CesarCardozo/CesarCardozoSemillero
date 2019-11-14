@@ -130,4 +130,18 @@ public class EjerciciosTest {
 		Assert.assertTrue(EjerciciosPOJO.returnBestPosibleCoins(1000, 1, 0, 0, 0, 0)); //cantidad de 1000, 1 de mil
 		Assert.assertTrue(EjerciciosPOJO.returnBestPosibleCoins(5550, 5, 1, 0, 0, 1)); //cantidad de 5550, 5 de mil, 1 de quini, 1 de cincu
 	}
+	
+	/**
+	 * 
+	 * Metodo encargado de probar el ejericio numero 11
+	 * <b>Caso de Uso</b>
+	 * @author Cesar
+	 *
+	 */
+	public void ejercicioNueve() {
+		Assert.assertEquals(EjerciciosPOJO.getNextNumber(3,6),new Integer(19));
+	}
+	
+	public static void main(String[] args) {
+	}
 }

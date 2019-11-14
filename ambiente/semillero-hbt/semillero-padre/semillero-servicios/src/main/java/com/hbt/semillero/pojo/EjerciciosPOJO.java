@@ -174,26 +174,20 @@ public class EjerciciosPOJO {
 		int deDoscientos = 0;
 		int deCien = 0;
 		int deCincuenta = 0;
-		if (value/1000 >= 1) {
-			deMil = (int)value/1000;
-		}
+		deMil = (value/1000 >= 1) ?  (int)value/1000: 0;
 		value = value - (deMil*1000);
-		if (value / 500 >= 1) {
-			deQuinientos = (int)value/500;
-		}
+		deQuinientos =  (value / 500 >= 1)?(int)value/500:0;
 		value = value - (deQuinientos*500);
-		if (value / 200 >= 1) {
-			deDoscientos = (int)value/200;
-		}
+		deDoscientos = (value / 200 >= 1)?(int)value/200:0;
 		value = value - (deDoscientos*200);
-		if (value / 100 >= 1) {
-			deCien = (int)value/100;
-		}
+		deCien = (value / 100 >= 1)?(int)value/100:0;
 		value = value - (deCien*100);
-		if (value / 50 >= 1) {
-			deCincuenta = (int)value/50;
-		}
+		deCincuenta = (value / 50 >= 1)? (int)value/50:0;
 		value = value - (deCincuenta*50);
-		return (deMil==deMilEsperada && deQuinientos == deQuinientosEsperada && deDoscientos == deDoscientosEsperada && deCien == deCienEsperada && deCincuenta == deCincuentaEsperada);
+		return deMil == deMilEsperada && 
+				deQuinientos == deQuinientosEsperada &&
+				deDoscientos == deDoscientosEsperada && 
+				deCien == deCienEsperada && 
+				deCincuenta == deCincuentaEsperada;
 	}
 }

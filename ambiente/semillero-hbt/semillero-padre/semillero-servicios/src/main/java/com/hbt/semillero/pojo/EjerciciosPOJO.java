@@ -6,7 +6,8 @@ package com.hbt.semillero.pojo;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <b>Descripción:<b> Clase que determina
@@ -97,4 +98,59 @@ public class EjerciciosPOJO {
 	public ArrayList<Integer> getNumerosEjercicioCinco() {
 		return numerosEjercicioCinco;
 	}	
+	
+	/**
+	 * mapa donde se almacenan los jugadores y sus puntos
+	 */
+	private Map<String, Integer[]> sets = new HashMap<>();
+	
+	/**
+	 * 
+	 * Metodo encargado de alimentar el mapa de puntos
+	 * <b>Caso de Uso</b>
+	 * @author Cesar
+	 * 
+	 * @param playerA
+	 * @param pointsPlayerA
+	 * @param playerB
+	 * @param pointsPlayerB
+	 */
+	public void establecerDatosSet(String playerA, Integer[] pointsPlayerA, String playerB, Integer[] pointsPlayerB) {
+		this.sets.put(playerA, pointsPlayerA);
+		this.sets.put(playerB, pointsPlayerB);
+	}
+	
+	/**
+	 * 
+	 * Metodo encargado de devolver al ganador
+	 * <b>Caso de Uso</b>
+	 * @author Cesar
+	 * 
+	 * @param playerA
+	 * @param playerB
+	 * @return
+	 */
+	public String returnWinner(String playerA, String playerB) {
+		int setsA = 0;
+		int setsB = 0;
+		if (this.sets.get(playerA)[0]>this.sets.get(playerB)[0]) {
+			setsA++;
+		}else {
+			setsB++;
+		}
+		if (this.sets.get(playerA)[1]>this.sets.get(playerB)[1]) {
+			setsA++;
+		}else {
+			setsB++;
+		}
+		if (setsA==2 || setsB==2) {
+			return (setsA>setsB)?playerA:playerB;
+		}
+		if (this.sets.get(playerA)[2]>this.sets.get(playerB)[2]) {
+			setsA++;
+		}else {
+			setsB++;
+		}
+		return (setsA>setsB)?playerA:playerB;
+	}
 }

@@ -3,11 +3,8 @@
  */
 package com.hbt.semillero.servicios;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
-import org.hibernate.type.LocalDateType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -35,7 +32,7 @@ public class EjerciciosTest {
 //  		String java.lang;
   		//valido
   		String pPublic = "pPublic";
-        Assert.assertEquals(_helloWorld, "pPublic");
+        Assert.assertEquals(pPublic, "pPublic");
   		//no valido (comentareado para evitar error)
 //  		String 1980S;
 	}
@@ -105,5 +102,20 @@ public class EjerciciosTest {
 		Assert.assertEquals(values.get(values.size()), tamanio);
 	}
 
-	
+	/**
+	 * 
+	 * Metodo encargado de probar el ejercicio numero 7
+	 * <b>Caso de Uso</b>
+	 * @author Cesar
+	 *
+	 */
+	public void ejercicioSiete() {
+		Integer[] pointsPlayerA = {1,6,2};
+		Integer[] pointsPlayerB = {6,2,6};
+		String playerA = "Federer";
+		String playerB = "Thaim";
+		EjerciciosPOJO ejerciciosPOJO = new EjerciciosPOJO();
+		ejerciciosPOJO.establecerDatosSet(playerA, pointsPlayerA, playerB, pointsPlayerB);
+		Assert.assertEquals(ejerciciosPOJO.returnWinner(playerA, playerB), playerB);
+	}
 }

@@ -45,9 +45,9 @@ public class EjerciciosTest {
 	 */
 	@Test
 	public void ejercicioDos() {
-		WaterBottle wb = new WaterBottle();
-		System.out.println("Empty=" + wb.empty);
-		System.out.println(", Brand" + wb.brand);
-		//saldra un error de compilacion pues la clase WaterBottle no existe
+		System.out.println("Empty=" + empty);
+		System.out.println(", Brand" + brand);
+		Assert.assertEquals("Empty="+empty, "Empty="); 
+		Assert.assertEquals(", Brand"+brand, ", Brandfalse");
 	}
 }

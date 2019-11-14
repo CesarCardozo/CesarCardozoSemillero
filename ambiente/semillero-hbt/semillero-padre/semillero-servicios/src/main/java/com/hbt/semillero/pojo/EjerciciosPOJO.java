@@ -11,7 +11,7 @@ import java.util.Iterator;
  * @author Cesar
  * @version 
  */
-public class EjerciciosPojo {
+public class EjerciciosPOJO {
 
 	/**
 	 * 

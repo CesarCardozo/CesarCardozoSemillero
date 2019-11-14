@@ -3,6 +3,10 @@
  */
 package com.hbt.semillero.servicios;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
+import org.hibernate.type.LocalDateType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -60,10 +64,22 @@ public class EjerciciosTest {
 	 * @author Cesar
 	 *
 	 */
-	@Test
+	@Test(enabled=false)
 	public void ejercicioTres() {
 		Assert.assertEquals(EjerciciosPOJO.verificarSiEsPrimo(5), true); //5 es primo 
 		Assert.assertEquals(EjerciciosPOJO.verificarSiEsPrimo(222), false); //222 no es primo
 		Assert.assertEquals(EjerciciosPOJO.verificarSiEsPrimo(0), false); //0 no es primo
 	}
+	
+	/**
+	 * Metodo encargado de validar que la suma de los años a la fecha de nacimiento sea la misma
+	 * <b>Caso de Uso</b>
+	 * @author Cesar
+	 *
+	 */
+	public void ejercicioCuatro() {
+		Assert.assertEquals(EjerciciosPOJO.sumarAniosAFechaNacimiento(LocalDate.of(2000, 1, 1), 19).getYear(), LocalDate.now().getYear());
+	}
+	
+	
 }

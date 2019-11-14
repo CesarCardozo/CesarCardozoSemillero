@@ -5,6 +5,7 @@ package com.hbt.semillero.servicios;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import org.hibernate.type.LocalDateType;
 import org.testng.Assert;
@@ -81,5 +82,28 @@ public class EjerciciosTest {
 		Assert.assertEquals(EjerciciosPOJO.sumarAniosAFechaNacimiento(LocalDate.of(2000, 1, 1), 19).getYear(), LocalDate.now().getYear());
 	}
 	
+	/**
+	 * 
+	 * Metodo encargado de probar ele ejercicio numero 4
+	 * <b>Caso de Uso</b>
+	 * @author Cesar
+	 *
+	 */
+	public void ejercicioCinco() {
+		EjerciciosPOJO ejerciciosPOJO = new EjerciciosPOJO();
+		ejerciciosPOJO.addValue(50);//agregar
+		ejerciciosPOJO.addValue(1);//agregar
+		ejerciciosPOJO.addValue(249);//agregar
+		ejerciciosPOJO.addValue(-2);//agregar
+		ejerciciosPOJO.sortValues();//organizar
+		ArrayList<Integer> values = ejerciciosPOJO.getNumerosEjercicioCinco();
+		Integer menor = -2;
+		Integer mayor = 249;
+		Integer tamanio = 4;
+		Assert.assertEquals(values.get(0), menor);
+		Assert.assertEquals(values.get(values.size()-1), mayor);
+		Assert.assertEquals(values.get(values.size()), tamanio);
+	}
+
 	
 }

@@ -11,7 +11,7 @@ import java.util.Iterator;
  * @author Cesar
  * @version 
  */
-public class Maraton {
+public class Ejercicios {
 
 	/**
 	 * 

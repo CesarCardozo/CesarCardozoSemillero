@@ -6,7 +6,7 @@ package com.hbt.semillero.servicios;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.hbt.semillero.pojo.Maraton;
+import com.hbt.semillero.pojo.Ejercicios;
 
 /**
  * <b>Descripción:<b> Clase que determina <b>Caso de Uso:<b>
@@ -62,8 +62,8 @@ public class EjerciciosTest {
 	 */
 	@Test
 	public void ejercicioTres() {
-		Assert.assertEquals(Maraton.verificarSiEsPrimo(5), true); //5 es primo 
-		Assert.assertEquals(Maraton.verificarSiEsPrimo(222), false); //222 no es primo
-		Assert.assertEquals(Maraton.verificarSiEsPrimo(0), false); //0 no es primo
+		Assert.assertEquals(Ejercicios.verificarSiEsPrimo(5), true); //5 es primo 
+		Assert.assertEquals(Ejercicios.verificarSiEsPrimo(222), false); //222 no es primo
+		Assert.assertEquals(Ejercicios.verificarSiEsPrimo(0), false); //0 no es primo
 	}
 }

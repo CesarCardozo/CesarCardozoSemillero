@@ -6,6 +6,8 @@ package com.hbt.semillero.servicios;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.hbt.semillero.pojo.Maraton;
+
 /**
  * <b>Descripción:<b> Clase que determina <b>Caso de Uso:<b>
  * 
@@ -43,11 +45,25 @@ public class EjerciciosTest {
 	 * @author Cesar
 	 *
 	 */
-	@Test
+	@Test(enabled=false)
 	public void ejercicioDos() {
 		System.out.println("Empty=" + empty);
 		System.out.println(", Brand" + brand);
 		Assert.assertEquals("Empty="+empty, "Empty="); 
 		Assert.assertEquals(", Brand"+brand, ", Brandfalse");
+	}
+	
+	/**
+	 * 
+	 * Metodo encargado de mirar si 5,222 y 0 son numeros primos o no
+	 * <b>Caso de Uso</b>
+	 * @author Cesar
+	 *
+	 */
+	@Test
+	public void ejercicioTres() {
+		Assert.assertEquals(Maraton.verificarSiEsPrimo(5), true); //5 es primo 
+		Assert.assertEquals(Maraton.verificarSiEsPrimo(222), false); //222 no es primo
+		Assert.assertEquals(Maraton.verificarSiEsPrimo(0), false); //0 no es primo
 	}
 }

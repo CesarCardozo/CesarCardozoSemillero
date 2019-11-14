@@ -127,7 +127,7 @@ public class EjerciciosTest {
 	 *
 	 */
 	public void ejercicioOcho() {
-		Assert.assertTrue(EjerciciosPOJO.returnBestPosibleCoins(1000, 1, 0, 0, 0, 0));
-		Assert.assertTrue(EjerciciosPOJO.returnBestPosibleCoins(5550, 5, 1, 0, 0, 1));
+		Assert.assertTrue(EjerciciosPOJO.returnBestPosibleCoins(1000, 1, 0, 0, 0, 0)); //cantidad de 1000, 1 de mil
+		Assert.assertTrue(EjerciciosPOJO.returnBestPosibleCoins(5550, 5, 1, 0, 0, 1)); //cantidad de 5550, 5 de mil, 1 de quini, 1 de cincu
 	}
 }

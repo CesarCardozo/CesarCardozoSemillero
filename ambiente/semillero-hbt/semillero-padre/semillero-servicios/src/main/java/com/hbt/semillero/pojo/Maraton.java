@@ -24,7 +24,7 @@ public class Maraton {
 	 */
 	public static boolean verificarSiEsPrimo(int number) {
 		int contador = 0;
-		for (int i = 1; i < number; i++) {
+		for (int i = 1; i <= number; i++) {
 			if(number % i == 0) {
 				contador++;
 			}

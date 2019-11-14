@@ -118,4 +118,16 @@ public class EjerciciosTest {
 		ejerciciosPOJO.establecerDatosSet(playerA, pointsPlayerA, playerB, pointsPlayerB);
 		Assert.assertEquals(ejerciciosPOJO.returnWinner(playerA, playerB), playerB);
 	}
+	
+	/**
+	 * 
+	 * Metodo encargado de probar el ejercicio numero 8
+	 * <b>Caso de Uso</b>
+	 * @author Cesar
+	 *
+	 */
+	public void ejercicioOcho() {
+		Assert.assertTrue(EjerciciosPOJO.returnBestPosibleCoins(1000, 1, 0, 0, 0, 0));
+		Assert.assertTrue(EjerciciosPOJO.returnBestPosibleCoins(5550, 5, 1, 0, 0, 1));
+	}
 }

@@ -153,4 +153,47 @@ public class EjerciciosPOJO {
 		}
 		return (setsA>setsB)?playerA:playerB;
 	}
+	
+	/**
+	 * 
+	 * Metodo encargado de validar la cantidad optima de monedas para determinado valor monetario
+	 * <b>Caso de Uso</b>
+	 * @author Cesar
+	 * 
+	 * @param value
+	 * @param deMilEsperada
+	 * @param deQuinientosEsperada
+	 * @param deDoscientosEsperada
+	 * @param deCienEsperada
+	 * @param deCincuentaEsperada
+	 * @return
+	 */
+	public static boolean returnBestPosibleCoins(double value, int deMilEsperada, int deQuinientosEsperada, int deDoscientosEsperada, int deCienEsperada, int deCincuentaEsperada) {
+		int deMil = 0;
+		int deQuinientos = 0;
+		int deDoscientos = 0;
+		int deCien = 0;
+		int deCincuenta = 0;
+		if (value/1000 >= 1) {
+			deMil = (int)value/1000;
+		}
+		value = value - (deMil*1000);
+		if (value / 500 >= 1) {
+			deQuinientos = (int)value/500;
+		}
+		value = value - (deQuinientos*500);
+		if (value / 200 >= 1) {
+			deDoscientos = (int)value/200;
+		}
+		value = value - (deDoscientos*200);
+		if (value / 100 >= 1) {
+			deCien = (int)value/100;
+		}
+		value = value - (deCien*100);
+		if (value / 50 >= 1) {
+			deCincuenta = (int)value/50;
+		}
+		value = value - (deCincuenta*50);
+		return (deMil==deMilEsperada && deQuinientos == deQuinientosEsperada && deDoscientos == deDoscientosEsperada && deCien == deCienEsperada && deCincuenta == deCincuentaEsperada);
+	}
 }

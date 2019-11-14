@@ -190,4 +190,17 @@ public class EjerciciosPOJO {
 				deCien == deCienEsperada && 
 				deCincuenta == deCincuentaEsperada;
 	}
+	
+	/**
+	 * 
+	 * Metodo encargado de desarrollar el punto 9
+	 * <b>Caso de Uso</b>
+	 * @author Cesar
+	 * 
+	 * @throws Exception
+	 */
+	public void ohNo() throws Exception{ //respuesta correcta b
+		throw new Exception();//respuesta correcta d
+	}
+	
 }

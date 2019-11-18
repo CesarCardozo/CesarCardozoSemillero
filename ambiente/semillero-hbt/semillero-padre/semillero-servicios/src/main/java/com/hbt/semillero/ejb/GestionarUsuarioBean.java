@@ -155,7 +155,7 @@ public class GestionarUsuarioBean implements IGestionarUsuarioLocal{
 	public void modificarUsuario(UsuarioDTO usuarioDTOModificado) {
 		Usuario usuarioAModificar = em.find(Usuario.class, usuarioDTOModificado.getId());
 		usuarioAModificar.setNombre(usuarioDTOModificado.getNombre());
-		em.persist(usuarioAModificar);
+		em.merge(usuarioAModificar);
 	}
 
 	/**
@@ -171,7 +171,7 @@ public class GestionarUsuarioBean implements IGestionarUsuarioLocal{
 	public void eliminarUsuario(Long idUsuario) {
 		Usuario usuario = em.find(Usuario.class, idUsuario);
 		usuario.setEstado(EstadoUsuarioEnum.INACTIVO); //se vuelve inactivo el usuario 
-		em.persist(usuario);
+		em.merge(usuario);
 	}
 
 	/**

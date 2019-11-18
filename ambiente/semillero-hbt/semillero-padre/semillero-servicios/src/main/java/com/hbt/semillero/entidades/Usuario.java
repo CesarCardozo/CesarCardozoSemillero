@@ -3,6 +3,7 @@
  */
 package com.hbt.semillero.entidades;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -21,8 +23,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "TC_USUARIO")
-public class Usuario {
+public class Usuario implements Serializable {
 
+	/**
+	 * Atributo que determina  
+	 */
+	private static final long serialVersionUID = -6801814627904654995L;
 	/**
 	 * id del usuario
 	 */
@@ -42,7 +48,7 @@ public class Usuario {
 	/**
 	 * persona asociada al usuario
 	 */
-	@OneToOne
+
 	private Persona persona;
 	
 	
@@ -117,7 +123,8 @@ public class Usuario {
 	 * Metodo encargado de retornar el valor del atributo persona
 	 * @return El persona asociado a la clase
 	 */
-	@Column(name = "SUIDPERSONA")
+	@OneToOne
+	@JoinColumn(name="SUIDPERSONA")
 	public Persona getPersona() {
 		return persona;
 	}

@@ -16,8 +16,7 @@ public class UsuarioDTO implements Serializable{
 	/**
 	 * Atributo que determina  
 	 */
-	private static final long serialVersionUID = 8671491754930043967L;
-
+	private static final long serialVersionUID = 1052198432091617689L;
 	private Long id;
 	private String nombre;
 	private LocalDate fechaCreacion;
@@ -115,4 +114,14 @@ public class UsuarioDTO implements Serializable{
 	public void setIdPersona(Long idPersona) {
 		this.idPersona = idPersona;
 	}
+	/** 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "UsuarioDTO [id=" + id + ", nombre=" + nombre + ", fechaCreacion=" + fechaCreacion + ", estado=" + estado
+				+ ", idPersona=" + idPersona + "]";
+	}
+	
+	
 }

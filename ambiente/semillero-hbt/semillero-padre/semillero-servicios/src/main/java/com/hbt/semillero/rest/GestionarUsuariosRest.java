@@ -3,6 +3,7 @@
  */
 package com.hbt.semillero.rest;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -20,6 +21,7 @@ import com.hbt.semillero.dto.PersonaDTO;
 import com.hbt.semillero.dto.ResultadoDTO;
 import com.hbt.semillero.dto.UsuarioDTO;
 import com.hbt.semillero.ejb.IGestionarUsuarioLocal;
+import com.hbt.semillero.entidades.EstadoEnum;
 
 /**
  * <b>Descripción:<b> Clase que se utiliza para que gestionarUsuarioBean se
@@ -126,14 +128,20 @@ public class GestionarUsuariosRest {
 	@Path("/crearUsuario")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public ResultadoDTO crearUsuario(PersonaDTO personaDTO, UsuarioDTO usuarioDTO) {
+	public ResultadoDTO crearUsuario(PersonaDTO personaDTO) {
+		UsuarioDTO usuarioDTO = new UsuarioDTO();
+		usuarioDTO.setId(personaDTO.getId());
+		usuarioDTO.setFechaCreacion(LocalDate.of(1999, 10, 10));
+		usuarioDTO.setIdPersona(personaDTO.getId());
+		usuarioDTO.setEstado(EstadoEnum.ACTIVO.name());
+		usuarioDTO.setIdPersona(personaDTO.getId());
 		try {
 			gestionarUsuarioEJB.crearPersona(personaDTO);
-			usuarioDTO.setIdPersona(personaDTO.getId());// se asocian la persona y el usuario
+			// se asocian la persona y el usuario
 			gestionarUsuarioEJB.crearUsuario(usuarioDTO); // el nombre se autogenera dentro de la creacion de usuario
-			return new ResultadoDTO(Boolean.TRUE, "Persona y usuario, creados exitosamente");
+			return new ResultadoDTO(Boolean.TRUE, usuarioDTO.toString() + "Persona y usuario, creados exitosamente");
 		} catch (Exception e) {
-			return new ResultadoDTO(Boolean.FALSE, "Fecha de creacion excede la fecha actual");
+			return new ResultadoDTO(Boolean.FALSE, usuarioDTO.toString() + "Fecha de creacion excede la fecha actual");
 		}
 	}
 
@@ -146,7 +154,7 @@ public class GestionarUsuariosRest {
 	 * 
 	 * @param usuarioDTO
 	 */
-	@PUT
+	@POST
 	@Path("/modificarUsuario")
 	public void modificarUsuario(UsuarioDTO usuarioDTOModificado) {
 		gestionarUsuarioEJB.modificarUsuario(usuarioDTOModificado);
@@ -161,7 +169,7 @@ public class GestionarUsuariosRest {
 	 * 
 	 * @param idUsuario
 	 */
-	@DELETE
+	@GET
 	@Path("/eliminarUsuario")
 	public void eliminarUsuario(@QueryParam("idUsuario") Long idUsuario) {
 		if (idUsuario != null) {

@@ -3,14 +3,20 @@
  */
 package com.hbt.semillero.dto;
 
+import java.io.Serializable;
+
 /**
  * <b>Descripción:<b> Clase que determina
  * <b>Caso de Uso:<b> 
  * @author Cesar
  * @version 
  */
-public class PersonaDTO {
+public class PersonaDTO implements Serializable {
 
+	/**
+	 * Atributo que determina  
+	 */
+	private static final long serialVersionUID = 1217410600965198169L;
 	private Long id;
 	private String nombre;
 	private Long numIdentificacion;

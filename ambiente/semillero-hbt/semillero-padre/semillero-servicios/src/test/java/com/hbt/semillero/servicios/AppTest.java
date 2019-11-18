@@ -4,23 +4,26 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.hbt.semillero.entidades.EstadoEnum;
+import com.hbt.semillero.pojo.GestionarComicPOJO;
 
 public class AppTest {
 
+	public void shouldAnswerWithTrue() {
 
-	@Test(enabled=false)
+	}
+
+	@Test
 	public void primeraPU() {
 		Long resultadoEsperado = 150L;
 		Long sumando1 = 100L;
 		Long sumando2 = 50L;
 		Long resultado = sumando1 + sumando2;
 		Assert.assertEquals(resultado, resultadoEsperado);
-		resultadoEsperado = 200L;
+		resultadoEsperado = 170L;
 		Assert.assertNotEquals(resultado, resultadoEsperado);
 	}
 
-	@Test(enabled=false)
-	private static String invertirCadena(String cadena) {
+	private String invertirCadena(String cadena) {
 		String cadenaInvertida = "";
 		for (int x = cadena.length() - 1; x >= 0; x--) {
 			cadenaInvertida = cadenaInvertida + cadena.charAt(x);
@@ -28,60 +31,105 @@ public class AppTest {
 		return cadenaInvertida;
 	}
 	
-	@Test(enabled=false)
-	private void invertirCadena() {
-		String cadena = "prueba";
-		String cadenaInvertidaEsperada = "abeurp";//inicializacion  de la cadena esperada invertida en un valor acertado
-		Assert.assertEquals(AppTest.invertirCadena(cadena), cadenaInvertidaEsperada); //Prueba con cadena esperada invertida acertada 
+	@Test
+	public void pruebaInvertirCadena() {
+		String cadena = "cadena";
+		String resultado = invertirCadena(cadena);
+		String resultadoEsperado = "anedac";
+		Assert.assertEquals(resultado, resultadoEsperado);
 		
-		cadenaInvertidaEsperada = "praebu";//cambio de la cadena esperada invertida a un valor equivocado
-		Assert.assertNotEquals(AppTest.invertirCadena(cadena), cadenaInvertidaEsperada); //Prueba con cadena esperada invertida equivocada 
+		cadena = "test";
+		resultado = invertirCadena(cadena);
+		resultadoEsperado = "tste";
+		Assert.assertNotEquals(resultado, resultadoEsperado);
 		
-		cadena = "";//cambio de la cadena esperada invertida a un valor vacio
-		cadenaInvertidaEsperada = "";//cambio de la cadena esperada invertida a un valor acertado
-		Assert.assertEquals(AppTest.invertirCadena(cadena), cadenaInvertidaEsperada); //Prueba con cadena esperada invertida acertada 
+		cadena = "";
+		resultado = invertirCadena(cadena);
+		resultadoEsperado = "";
+		Assert.assertEquals(resultado, resultadoEsperado);
 		
-		cadenaInvertidaEsperada = " ";//cambio de la cadena esperada invertida a un valor equivocado
-		Assert.assertNotEquals(AppTest.invertirCadena(cadena), cadenaInvertidaEsperada); //Prueba con cadena esperada invertida equivocada 
+		cadena = "";
+		resultado = invertirCadena(cadena);
+		resultadoEsperado = " ";
+		Assert.assertNotEquals(resultado, resultadoEsperado);
+		
+		cadena = "cadena a invertir ";
+		resultado = invertirCadena(cadena);
+		resultadoEsperado = "ritrevni a anedac ";
+		Assert.assertNotEquals(resultado, resultadoEsperado);
+		
+		cadena = "  ";
+		resultado = invertirCadena(cadena);
+		resultadoEsperado = "  ";
+		Assert.assertEquals(resultado, resultadoEsperado);
+		
+		cadena = "  ";
+		resultado = invertirCadena(cadena);
+		resultadoEsperado = "";
+		Assert.assertNotEquals(resultado, resultadoEsperado);
 	}
 	
 	/**
 	 * 
-	 * Metodo encargado de realizar las pruebas concernientes al enumerado EstadoEnum
+	 * Metodo encargado de hacer las pruebas del enumerado Estado
 	 * <b>Caso de Uso</b>
-	 * @author Cesar
+	 * @author Yuliana
 	 *
 	 */
 	@Test(enabled=false)
-    public void pruebaEstadoEnum() {
-        EstadoEnum estadoActivo = EstadoEnum.ACTIVO;//Instanciar un enum de la clase EstadoEnum (estado activo)
-        EstadoEnum estadoInactivo = EstadoEnum.INACTIVO;//Otra instancia del estado inactivo (para fines de pruebas)
-        @SuppressWarnings("unused")
-		String estadoActivoNombre = estadoActivo.name(); //nombre del estado activo
-        @SuppressWarnings("unused")
-		String estadoInactivoNombre = estadoInactivo.name();//nombr del estado inactivo
-        int posEstadoActivo = estadoActivo.ordinal();//posicion del estado activo
-        int posEstadoInactivo = estadoInactivo.ordinal();//posicion de estado inactivo
-        int posicionEsperadaEstodoActivo = 0;//posicion esperada del estado activo
-        int posicionEsperadaEstodoInactivo = 1;//posicion esperada del estado inactivo
-        //Prueba en la que se comprueba que sean iguales las posiciones actuales y esperada del estado activo
-        Assert.assertEquals(posEstadoActivo, posicionEsperadaEstodoActivo);
-        //Prueba en la que se comprueba que sean iguales las posiciones actuales y esperada del estado inactivo
-        Assert.assertEquals(posEstadoInactivo, posicionEsperadaEstodoInactivo);
-        //Array que contiene todos los enum
-        @SuppressWarnings("unused")
-		EstadoEnum[] estados = EstadoEnum.values();
-    }
-	
-	@Test
-	public void probarStringIgual() {
-		String s1 = "street";
-		String s2;
-		s2 = new String("street");
-		if(s1==s2) {
-			
-		}
+	public void pruebaEnumeradoEstado() {
+		//Instanciar un enum de la clase EstadoEnum
+		EstadoEnum estadoActivo= EstadoEnum.ACTIVO;
+		
+		//Devuelve un String con el nombre de la constante (ACTIVO)
+		String nombreActivo = estadoActivo.name();
+		Assert.assertEquals(nombreActivo, "ACTIVO");
+		
+		//Devuelve un entero con la posición del enum según está declarada
+		int posicion = estadoActivo.ordinal();
+		
+		//Compara el enum con el parámetro según el orden en el que están declarados lo enum
+		int posicionEstadoActivoEsperada = 0;
+		Assert.assertEquals(estadoActivo.ordinal(), posicionEstadoActivoEsperada);
+		
+		posicionEstadoActivoEsperada = 1;
+		Assert.assertNotEquals(estadoActivo.ordinal(), posicionEstadoActivoEsperada);
+		
+		//Devuelve un array que contiene todos los enum
+		EstadoEnum[] listEstados =  EstadoEnum.values();
 	}
 	
 	
+	@Test
+	public void crearComicDTOTest() {
+		GestionarComicPOJO gestionarComicPOJO = new GestionarComicPOJO();
+		gestionarComicPOJO.crearComicDTO();
+		Assert.assertNotNull(gestionarComicPOJO.getListaComics());
+		
+	}
+	
+	@Test
+	public void crearComicDTOTestParametros() {
+		GestionarComicPOJO gestionarComicPOJO = new GestionarComicPOJO();
+
+	}
+	
+	@Test
+	public void agregarComicDTOLista() {
+		
+	}
+	
+	public static void probar() {
+		String s1 = "street";
+		String s2;
+		s2 = new String("street");
+		if(s1 == s2) {
+			System.out.println("entro");
+		}
+		System.out.println("no entro");
+	}
+	
+	public static void main(String[] args) {
+		AppTest.probar();
+	}
 }

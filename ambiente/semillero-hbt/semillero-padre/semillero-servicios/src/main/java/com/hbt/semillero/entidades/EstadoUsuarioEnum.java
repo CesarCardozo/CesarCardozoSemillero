@@ -1,31 +1,26 @@
 /**
- * TematicaEnum.java
+ * EstadoUsuarioEnum.java
  */
 package com.hbt.semillero.entidades;
 
 /**
- * <b>Descripción:<b> Clase que determina
+ * <b>Descripción:<b> Clase que determina los estados de un usuario
  * <b>Caso de Uso:<b> 
- * @author  Cesar Cardozo
+ * @author Cesar
  * @version 
  */
-public enum TematicaEnum {
-	AVENTURAS("enum.tematica.aventuras"),
-	BELICO("enum.tematica.belico"), 
-	HUMORISTICO("enum.tematica.humoristico"),
-	DEPORTIVO("enum.tematica.deportivo"), 
-	FANTASTICO("enum.tematica.fantastico"),
-	CIENCIA_FICCION("enum.tematica.ficcion"),
-	HISTORICO("enum.tematica.historico"), 
-	HORROR("enum.tematica.horror");
+public enum EstadoUsuarioEnum {
+
+	ACTIVO("enum.usuario.activo"),
+	INACTIVO("enum.usuario.inactivo");
 	
 	private String codigoMensaje;
-
+	
 	/**
 	 * Constructor de la clase.
 	 * @param codigoMensaje
 	 */
-	private TematicaEnum(String codigoMensaje) {
+	private EstadoUsuarioEnum(String codigoMensaje) {
 		this.codigoMensaje = codigoMensaje;
 	}
 
@@ -44,6 +39,4 @@ public enum TematicaEnum {
 	public void setCodigoMensaje(String codigoMensaje) {
 		this.codigoMensaje = codigoMensaje;
 	}
-	
-	
 }

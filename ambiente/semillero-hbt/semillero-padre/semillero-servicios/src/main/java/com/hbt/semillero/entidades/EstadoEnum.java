@@ -4,18 +4,18 @@
 package com.hbt.semillero.entidades;
 
 /**
- * <b>Descripción:<b> Clase que determina los posibles valores de tematicas en comics
+ * <b>Descripción:<b> Clase que determina
  * <b>Caso de Uso:<b> 
- * @author Cesar
+ * @author  Cesar Cardozo
  * @version 
  */
 public enum EstadoEnum {
 
-	ACTIVO("enum.estado.activo"), 
-	INACTIVO("enum.estado.inactivo");
+	ACTIVO("enum.tematica.activo"),
+	INACTIVO("enum.tematica.inactivo");
 	
 	private String codigoMensaje;
-
+	
 	/**
 	 * Constructor de la clase.
 	 * @param codigoMensaje
@@ -38,5 +38,6 @@ public enum EstadoEnum {
 	 */
 	public void setCodigoMensaje(String codigoMensaje) {
 		this.codigoMensaje = codigoMensaje;
-	}	
+	}
+
 }

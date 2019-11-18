@@ -1,3 +1,6 @@
+/**
+ * IGestionarComicLocal.java
+ */
 package com.hbt.semillero.ejb;
 
 import java.util.List;
@@ -12,7 +15,7 @@ import com.hbt.semillero.dto.ComicDTO;
  * necesita implementar pero no el como eso lo realiza la clase que la
  * implementa Palabras claves interface e implements
  * 
- * @author ccastano
+ * @author   Cesar Cardozo
  *
  */
 @Local
